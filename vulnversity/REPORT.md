@@ -18,6 +18,13 @@ The first step is to deploy the vulnerable machine provided by TryHackMe.
 - Allow **4–5 minutes** for the machine to fully boot.  
 
 📷 **Screenshot:**  
-![Deploying the Machine](./screenshots/deploy-machine.png)  
+![Deploying the Machine](./screenshots/deploy-machine.png)  ---
 
-After the waiting period, the target machine is up and ready for enumeration.  
+## 🔎 Step 2: Enumeration with Nmap  
+After the target machine was up, I conducted an **Nmap scan** to identify open ports and running services.  
+I used the `-A` flag since it provides OS detection, service versions, and script scanning in one command.  
+
+```bash
+sudo nmap -A 10.10.68.23
+
+
