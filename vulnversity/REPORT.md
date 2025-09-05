@@ -68,8 +68,6 @@ To identify hidden directories on the Apache server running on port **3333**, I 
 gobuster dir -u http://10.10.68.23:3333 -w /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt
 ```
 
-📷 **Screenshot:**  
-![Gobuster Scan](./screenshots/gobuster_scan.png)  
 
 The scan results showed the following directories/files:  
 
