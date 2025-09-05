@@ -26,5 +26,21 @@ I used the `-A` flag since it provides OS detection, service versions, and scrip
 
 ```bash
 sudo nmap -A 10.10.68.23
+```
+📷 Screenshot:
 
+
+Results from the scan:
+
+Port 21/tcp → FTP (vsftpd 3.0.3)
+
+Port 22/tcp → SSH (OpenSSH 7.2p2)
+
+Port 139, 445/tcp → SMB service running
+
+Port 3128/tcp → Squid HTTP proxy
+
+Port 3333/tcp → Apache web server (Vuln University)
+
+👉 The web server on port 3333 stands out as a potential entry point for exploitation.
 
