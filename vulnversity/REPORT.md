@@ -193,8 +193,8 @@ http://<target-ip>:3333/internal/uploads/rev.phtml
 ```
 
 📷 **Screenshot**
-[dir bruteforcing showing uploads directory](./Screenshots/directory_bruteforcing_in_internal_directory.png)
-[uploads page showing rev.phtml file](./Screenshots/Uploads_directory_showing_rev.phtml.png)
+![dir bruteforcing showing uploads directory](./Screenshots/directory_bruteforcing_in_internal_directory.png)
+![uploads page showing rev.phtml file](./Screenshots/Uploads_directory_showing_rev.phtml.png)
 
 ### ✅ Result  
 After triggering the file, I received a reverse shell connection back on the listener terminal.  
