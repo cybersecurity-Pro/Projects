@@ -18,7 +18,7 @@ The first step is to deploy the vulnerable machine provided by TryHackMe.
 - Allow **4–5 minutes** for the machine to fully boot.  
 
 📷 **Screenshot:**  
-![Deploying the Machine](j/Screenshots/Screenshot 2025-09-05 105349.png)  ---
+![Deploying the Machine](./Screenshots/Screenshot 2025-09-05 144109.png)  
 
 
 ## 🔎 Step 2: Enumeration with Nmap  
