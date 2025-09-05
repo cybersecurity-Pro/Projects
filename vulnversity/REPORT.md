@@ -52,7 +52,7 @@ Port 3333/tcp → Apache web server (Vuln University)
 After identifying that **port 3333** was running an Apache web server, I visited the site in my browser:  
 
 📷 **Screenshot:**  
-![Vuln University Homepage](./screenshots/visiting_target_web_server.png)  
+![Vuln University Homepage](./Screenshots/visiting_target_web_server.png)  
 
 The website displayed a landing page for "Vuln University."  
 
@@ -84,7 +84,7 @@ The scan results showed the following directories/files:
 - `/server-status` → **403 Forbidden**  
 
 📷 **Screenshot:**  
-![Gobuster Results](./screenshots/Gobuster_directory_bruteforcing.png)  
+![Gobuster Results](./Screenshots/Gobuster_directory_bruteforcing.png)  
 
 After manually visiting the directories, I discovered that the **`/internal` directory** exposed an **upload functionality**.  
 
@@ -94,7 +94,7 @@ After manually visiting the directories, I discovered that the **`/internal` dir
 After accessing the **`/internal`** directory, I found an **upload page**.  
 
 📷 **Screenshot:**  
-![Upload Page](./screenshots/rev.php_format_not_supported.png)  
+![Upload Page](./Screenshots/rev.php_format_not_supported.png)  
 
 I attempted to upload a **PHP reverse shell** payload (`rev.php`).  
 However, the application **rejected the file format**, indicating that PHP files are not allowed.  
@@ -112,7 +112,7 @@ To analyze the file upload restriction, I configured **FoxyProxy** to redirect t
 - BurpSuite successfully captured the HTTP request of the file upload.  
 
 📷 **Screenshot:**  
-![BurpSuite Intercept](./screenshots/Burp_suite_intercept.png)  
+![BurpSuite Intercept](./Screenshots/Burp_suite_intercept.png)  
 
 The intercepted request clearly shows the payload:  
 
@@ -145,7 +145,7 @@ To bypass the file upload filter, I used **BurpSuite Intruder** to brute-force c
 4. Ran the **Sniper attack** to test each extension.  
 
 ### 📷 Screenshot:  
-![Intruder Attack](./screenshots/phtml_format_success.png)  
+![Intruder Attack](./Screenshots/phtml_format_success.png)  
 
 ### 🔑 Findings:
 - `.php`, `.php1`, `.php2`, and `.php5` → Blocked.  
