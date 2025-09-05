@@ -95,7 +95,7 @@ After accessing the **`/internal`** directory, I found an **upload page**.
 📷 **Screenshot:**  
 ![Upload Page](./screenshots/internal_upload.png)  
 
-I attempted to upload a **PHP reverse shell** payload (`php-reverse-shell.php`).  
+I attempted to upload a **PHP reverse shell** payload (`rev.php`).  
 However, the application **rejected the file format**, indicating that PHP files are not allowed.  
 
 This shows that the upload functionality has **file type restrictions** in place.  
