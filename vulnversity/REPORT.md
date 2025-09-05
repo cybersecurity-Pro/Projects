@@ -28,7 +28,8 @@ I used the `-A` flag since it provides OS detection, service versions, and scrip
 ```bash
 sudo nmap -A 10.10.68.23
 ```
-📷 Screenshot:
+📷 **Screenshot:**
+![Nmap scan](./Screenshots/Nmap_scan.png)
 
 
 Results from the scan:
