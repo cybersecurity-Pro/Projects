@@ -189,7 +189,7 @@ To identify where the uploaded file was stored, I performed another directory br
 I accessed the uploaded file in the browser:  
 
 ```
-http://<target-ip>:3333/internal/uploads/rev.phtml
+http://10.10.68.23:3333/internal/uploads/rev.phtml
 ```
 
 📷 **Screenshot**
