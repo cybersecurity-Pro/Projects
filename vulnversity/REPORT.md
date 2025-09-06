@@ -200,6 +200,10 @@ http://<target-ip>:3333/internal/uploads/rev.phtml
 ## 🛠 Step 9: Capturing the User Flag  
 
 ### 1️⃣ Navigating to Home Directory  
+After uploading and clicking the malicious payload, our Netcat listener successfully received a reverse shell connection,confirming remote access to the target system.
+📷 **Screenshot**
+![got the reverse shell](./Screenshots/we_got_the_shell.png)
+
 After gaining the reverse shell, I explored the directories to locate potential flags.  
 
 ```bash
@@ -224,7 +228,8 @@ Inside the `bill` directory, there was a file named `user.txt`.
 cat user.txt
 ```
 
-📷 Screenshot (displaying the contents of `user.txt`)  
+📷 **Screenshot**
+![user flag](./Screenshots/user_flag.png)  
 
 ### ✅ Result  
 The contents of `user.txt` revealed the **User Flag**.  
@@ -246,7 +251,9 @@ I searched the system for all binaries owned by root with the SUID bit set using
 find / -user root -perm -4000 -exec ls -ldb {} \;
 ```  
 
-📷 Screenshot (showing the output of the command with SUID binaries)  
+📷 **Screenshot**
+![suid binary command](./Screenshots/binary_command.png)
+![systemctl](./Screenshots/systemctl.png)
 
 ### 3️⃣ Identifying Exploitable Binary  
 From the results, I found:  
@@ -286,8 +293,8 @@ sudo systemctl enable --now $TF
 ```
 
 
-📷 Screenshot:
-
+📷 **Screenshot**
+![modified code](./Screenshots/modified_code.png)
 
 3️⃣ Retrieve the root flag
 
@@ -298,7 +305,8 @@ cat /tmp/output
 ```
 
 
-📷 Screenshot:
+📷 **Screenshot**
+![root flag](./Screenshots/Root_flag.png)
 
 
 ✅ Result
