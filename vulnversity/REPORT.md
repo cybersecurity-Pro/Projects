@@ -9,6 +9,15 @@ For this walkthrough, I am using **Kali Linux on VirtualBox**.
 - Alternatively, you can use the **AttackBox** (browser-based Kali provided by THM), which is already connected to the lab environment.  
 
 ---
+## 🛠 Tools Used  
+- Nmap → For service and version enumeration.  
+- Gobuster → To brute-force directories and discover hidden paths.  
+- Burp Suite → To intercept, analyze, and manipulate HTTP requests.  
+- Netcat (nc) → To set up a listener and gain a reverse shell.  
+- GTFOBins → For privilege escalation techniques.  
+- Kali Linux Utilities (FoxyProxy, curl, basic Linux commands).
+
+---
 
 ## 🚀 Step 1: Deploying the Target Machine  
 The first step is to deploy the vulnerable machine provided by TryHackMe.  
@@ -313,6 +322,17 @@ cat /tmp/output
 ✅ Result
 
 The modified systemctl payload successfully escalated privileges to root and captured the root flag.
+
+## 🎯 Conclusion & Learnings  
+
+- Enumeration is the first step in every engagement (nmap + gobuster).  
+- File upload restrictions can be bypassed with alternative extensions.  
+- Burp Suite is essential for testing and modifying requests.  
+- Reverse shells are key to gaining footholds.  
+- Privilege escalation relies on identifying misconfigurations (SUID binaries).  
+- GTFOBins is a critical resource for exploiting Linux binaries.  
+
+✅ Achieved both **user flag** and **root flag**, completing the Vulnversity lab.  
 
 
 
