@@ -196,8 +196,70 @@ http://<target-ip>:3333/internal/uploads/rev.phtml
 ![dir bruteforcing showing uploads directory](./Screenshots/directory_bruteforcing_in_internal_directory.png)
 ![uploads page showing rev.phtml file](./Screenshots/Uploads_directory_showing_rev.phtml.png)
 
+
+## 🛠 Step 9: Capturing the User Flag  
+
+### 1️⃣ Navigating to Home Directory  
+After gaining the reverse shell, I explored the directories to locate potential flags.  
+
+```bash
+cd /home
+ls
+```
+ 
+
+### 2️⃣ Identifying User Directory  
+I found a directory named `bill`, which is likely a user account.  
+
+```bash
+cd bill
+ls
+```
+ 
+
+### 3️⃣ Locating `user.txt`  
+Inside the `bill` directory, there was a file named `user.txt`.  
+
+```bash
+cat user.txt
+```
+
+📷 Screenshot (displaying the contents of `user.txt`)  
+
 ### ✅ Result  
-After triggering the file, I received a reverse shell connection back on the listener terminal.  
+The contents of `user.txt` revealed the **User Flag**.  
+
+
+## 🛠 Step 10: Privilege Escalation and Capturing the Root Flag  
+
+Now that we have the **User Flag**, the next step is to escalate privileges to obtain the **Root Flag**.  
+
+### 1️⃣ Understanding SUID  
+In Linux, **SUID (Set User ID)** is a special permission assigned to files.  
+- It allows users to execute a file with the permissions of the file owner (often root).  
+- For example, `/usr/bin/passwd` has the SUID bit set because changing a password requires writing to system files owned by root.  
+
+### 2️⃣ Searching for SUID Files  
+I searched the system for all binaries owned by root with the SUID bit set using the following command:  
+
+```bash
+find / -user root -perm -4000 -exec ls -ldb {} \;
+```  
+
+📷 Screenshot (showing the output of the command with SUID binaries)  
+
+### 3️⃣ Identifying Exploitable Binary  
+From the results, I found:  
+
+```
+/bin/systemctl
+```  
+
+This binary can be abused to escalate privileges.  
+
+### ✅ Result  
+We identified `systemctl` as a potential path to gain **root access**.  
+
 
 
 
