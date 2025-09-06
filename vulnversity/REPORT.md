@@ -304,6 +304,7 @@ sudo systemctl enable --now $TF
 
 
 📷 **Screenshot**
+
 ![modified code](./Screenshots/modified_code.png)
 
 3️⃣ Retrieve the root flag
@@ -316,6 +317,7 @@ cat /tmp/output
 
 
 📷 **Screenshot**
+
 ![root flag](./Screenshots/Root_flag.png)
 
 
