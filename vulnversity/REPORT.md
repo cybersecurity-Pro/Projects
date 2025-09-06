@@ -201,6 +201,7 @@ http://10.10.68.23:3333/internal/uploads/rev.phtml
 
 ### 1️⃣ Navigating to Home Directory  
 After uploading and clicking the malicious payload, our Netcat listener successfully received a reverse shell connection,confirming remote access to the target system.
+
 📷 **Screenshot**
 ![got the reverse shell](./Screenshots/we_got_the_shell.png)
 
