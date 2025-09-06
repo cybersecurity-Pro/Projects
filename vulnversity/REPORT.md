@@ -133,8 +133,8 @@ To bypass the file upload filter, I used **BurpSuite Intruder** to brute-force c
 
 ### Process:
 1. Captured the file upload request in Burp and sent it to **Intruder**.  
-2. Selected the filename parameter (`rev.php`) and marked it with **§**.  
-3. Added the following payloads:  
+2. Selected the filetype parameter (`php`) and marked it with **§**.  
+3. Added the following file types in file type section:  
    ```
    php
    php1
