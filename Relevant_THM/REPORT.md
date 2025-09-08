@@ -22,16 +22,18 @@ The primary goal of this engagement was to obtain the *User* and *Root* flags wh
 
 *Screenshot 1:* THM machine start page (to visually show lab initiation).
 
+---
 
-##🛠 Step 1: Starting the Machine & Initial Recon
+
+## 🛠 Step 1: Starting the Machine & Initial Recon
 
 # 1. Start the machine from the TryHackMe interface.
-    - If using your own VM → connect via the THM VPN.
-    - If using AttackBox → no VPN needed, tools are pre-installed.
+  - If using your own VM → connect via the THM VPN.
+  - If using AttackBox → no VPN needed, tools are pre-installed.
 
 # 2. After starting, wait:
-    - ~1 minute to get the target IP.
-    - ~4–5 minutes for all services to initialize.
+  - ~1 minute to get the target IP.
+  - ~4–5 minutes for all services to initialize.
 
 # 3. Perform an Nmap scan against the target IP:
 ```
