@@ -26,8 +26,8 @@ The primary goal of this engagement was to obtain the **User** and **Root** flag
 ## 🛠 Step 1: Starting the Machine & Initial Recon
 
 # 1. Start the machine from the TryHackMe interface.
-#    - If using your own VM → connect via the THM VPN.
-#    - If using AttackBox → no VPN needed, tools are pre-installed.
+- If using your own VM → connect via the THM VPN.
+- If using AttackBox → no VPN needed, tools are pre-installed.
 
 # 2. After starting, wait:
 #    - ~1 minute to get the target IP.
