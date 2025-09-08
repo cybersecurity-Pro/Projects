@@ -49,7 +49,7 @@ nmap -A 10.201.66.41
 ---
 
 
-# 🛠 Step 2: SMB Enumeration & Passwords File Discovery
+## 🛠 Step 2: SMB Enumeration & Passwords File Discovery
 
 *1) Enumerate SMB shares (anonymous)*
 ```   
@@ -81,18 +81,18 @@ echo "<BASE64_STRING>" | base64 -d
 
 📷 **Screenshot:**  Chatgpt
 
-# Observation:
-# - The passwords file contained base64-encoded entries (decoded in the screenshot).
-# - Despite decoding (see screenshot), using those credentials did NOT grant SMB access — appears to be a decoy designed to waste time.
+## Observation:
+ - The passwords file contained base64-encoded entries (decoded in the screenshot).
+ - Despite decoding (see screenshot), using those credentials did NOT grant SMB access — appears to be a decoy designed to waste time.
 ---
 
 
 ## 🔎 Step 3: Expanded Port Scan for Hidden Services
 
-# After realizing the SMB credentials were a distraction, I shifted focus to other possibilities.
-# It's common for administrators (or CTF creators) to host services on unusual, high-numbered ports.
-# The initial nmap scan only covered the most common 1000 ports, so it would have missed anything outside that range.
-# To address this, I ran an nmap scan specifically targeting the range 49000–50000.
+- After realizing the SMB credentials were a distraction, I shifted focus to other possibilities.
+- It's common for administrators (or CTF creators) to host services on unusual, high-numbered ports. 
+- The initial nmap scan only covered the most common 1000 ports, so it would have missed anything outside that range.
+- To address this, I ran an nmap scan specifically targeting the range 49000–50000.
 
 *1) Run nmap on the high port range*
 ```
@@ -100,17 +100,17 @@ nmap -p 49000-50000 10.201.66.41
 ```
 📷 **Screenshot:** port_discovery
 
-# Observation:
+## Observation:
  - The scan output revealed an open port in the specified range.
  - Since the command used did not include service/version detection (-sV),
    the output only showed that the port was open.
 
-# 2) Run a detailed scan with service detection on the discovered range
+## 2) Run a detailed scan with service detection on the discovered range
 ```
 nmap -sV -p 49000-50000 10.201.66.41
 ```
 
-# Observation:
+## Observation:
  - This detailed scan confirmed that one of the open ports in the range was running an HTTP service (a webserver).
  - With this information, the next step was to investigate the web application hosted on that port.
 
