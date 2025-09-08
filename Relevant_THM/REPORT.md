@@ -89,7 +89,7 @@ echo "<BASE64_STRING>" | base64 -d
 
 📷 **Screenshot:**  
 
-![ChatGpt](./Screenshots/bob_bill.png)  
+![ChatGpt](./Screenshots/decryption.png)  
 
 ### Observation:
  - The passwords file contained base64-encoded entries (decoded in the screenshot).
