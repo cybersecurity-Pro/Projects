@@ -93,7 +93,7 @@ echo "<BASE64_STRING>" | base64 -d
 
 ### Observation:
  - The passwords file contained base64-encoded entries (decoded in the screenshot).
- - Despite decoding (see screenshot), using those credentials did NOT grant SMB access — appears to be a decoy designed to waste time.
+ - Despite decoding, using those credentials did NOT grant SMB access — appears to be a decoy designed to waste time.
 ---
 
 
