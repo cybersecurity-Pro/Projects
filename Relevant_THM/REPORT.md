@@ -27,15 +27,15 @@ The primary goal of this engagement was to obtain the *User* and *Root* flags wh
 
 ## 🛠 Step 1: Starting the Machine & Initial Recon
 
-# 1. Start the machine from the TryHackMe interface.
+1. Start the machine from the TryHackMe interface.
   - If using your own VM → connect via the THM VPN.
   - If using AttackBox → no VPN needed, tools are pre-installed.
 
-# 2. After starting, wait:
+2. After starting, wait:
   - ~1 minute to get the target IP.
   - ~4–5 minutes for all services to initialize.
 
-# 3. Perform an Nmap scan against the target IP:
+3. Perform an Nmap scan against the target IP:
 ```
 nmap -A 10.201.66.41
 ```
@@ -48,24 +48,24 @@ nmap -A 10.201.66.41
  - OS Discovery: Windows Server 2016 Standard Eval, Workgroup: WORKGROUP.
 
 
-## 🛠 Step 2: SMB Enumeration & Passwords File Discovery
+# 🛠 Step 2: SMB Enumeration & Passwords File Discovery
 
-# 1) Enumerate SMB shares (anonymous)
-
+1) Enumerate SMB shares (anonymous)
+```   
 smbclient -L //10.201.66.41 -N
-
+```
 # Screenshot: nt4share
 
-# 2) Connect to the 'nt4wrksv' share (anonymous)
+2) Connect to the 'nt4wrksv' share (anonymous)
 
 smbclient //10.201.66.41/nt4wrksv -N
 
 
-# 3) List files and download passwords.txt
-
+3) List files and download passwords.txt
+```
 ls
 get passwords.txt
-
+```
 # Screenshot: screenshots/02_passwords_txt_list.png
 
 # 4) View the downloaded file locally (attackbox)
