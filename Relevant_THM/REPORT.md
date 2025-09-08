@@ -113,4 +113,4 @@ nmap -sV -p 49000-50000 10.201.66.41
 ### Observation:
  - This detailed scan confirmed that one of the open ports in the range was running an HTTP service (a webserver).
  - With this information, the next step was to investigate the web application hosted on that port.
-
+---
