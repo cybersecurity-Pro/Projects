@@ -20,7 +20,9 @@ This lab simulates a *black box penetration test* against a client's environment
 ### Goal
 The primary goal of this engagement was to obtain the *User* and *Root* flags while identifying vulnerabilities and misconfigurations within the environment.
 
-*Screenshot 1:* THM machine start page (to visually show lab initiation).
+📷 **Screenshot:** 
+
+![Deploying the Machine](./Screenshots/start_machine_1.png)  
 
 ---
 
@@ -39,7 +41,10 @@ The primary goal of this engagement was to obtain the *User* and *Root* flags wh
 ```
 nmap -A 10.201.66.41
 ```
-📷 **Screenshot:**  Nmap scan output (Nmap_scan_1.png)
+
+📷 **Screenshot:** 
+
+![Nmap_scan](./Screenshots/start_machine_1.png)  
 
 ### Findings:
  - Port 80 → Microsoft IIS 10.0 (web server).
@@ -60,7 +65,9 @@ smbclient -L //10.201.66.41 -N
 ```
 smbclient //10.201.66.41/nt4wrksv -N
 ```
-📷 **Screenshot:** smbclient 
+📷 **Screenshot:**
+
+![Nt4wrksv_share](./Screenshots/nt4wrksv_share.png)  
 
 
 ### 3) List files and download passwords.txt*
@@ -79,7 +86,9 @@ cat passwords.txt
 echo "<BASE64_STRING>" | base64 -d
 ```
 
-📷 **Screenshot:**  Chatgpt
+📷 **Screenshot:**  
+
+![ChatGpt](./Screenshots/bob_bill.png)  
 
 ### Observation:
  - The passwords file contained base64-encoded entries (decoded in the screenshot).
@@ -99,7 +108,9 @@ echo "<BASE64_STRING>" | base64 -d
 nmap -p 49000-50000 10.201.66.41 
 ```
 
-📷 **Screenshot:** port_discovery
+📷 **Screenshot:** 
+
+![Port_discovery](./Screenshots/port_discovery.png)  
 
 ### Observation:
  - The scan output revealed an open port in the specified range.
