@@ -55,11 +55,12 @@ nmap -A 10.201.66.41
 ```   
 smbclient -L //10.201.66.41 -N
 ```
-📷 **Screenshot:** 
 
 ### 2) Connect to the 'nt4wrksv' share (anonymous)
-
+```
 smbclient //10.201.66.41/nt4wrksv -N
+```
+📷 **Screenshot:** smbclient 
 
 
 ### 3) List files and download passwords.txt*
@@ -67,17 +68,16 @@ smbclient //10.201.66.41/nt4wrksv -N
 ls
 get passwords.txt
 ```
-📷 **Screenshot:**  screenshots/02_passwords_txt_list.png
 
-### 4) View the downloaded file locally (attackbox)*
-
+### 4) View the downloaded file locally 
+```
 cat passwords.txt
+```
 
 ### 5) Decode base64 entries (example; replace <BASE64_STRING> with value from your screenshot)*
 ```
 echo "<BASE64_STRING>" | base64 -d
 ```
-
 
 📷 **Screenshot:**  Chatgpt
 
@@ -98,6 +98,7 @@ echo "<BASE64_STRING>" | base64 -d
 ```
 nmap -p 49000-50000 10.201.66.41 
 ```
+
 📷 **Screenshot:** port_discovery
 
 ### Observation:
