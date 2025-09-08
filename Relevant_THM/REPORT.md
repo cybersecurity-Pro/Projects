@@ -44,7 +44,7 @@ nmap -A 10.201.66.41
 
 📷 **Screenshot:** 
 
-![Nmap_scan](./Screenshots/start_machine_1.png)  
+![Nmap_scan](./Screenshots/Nmap_scan_1.png)  
 
 ### Findings:
  - Port 80 → Microsoft IIS 10.0 (web server).
