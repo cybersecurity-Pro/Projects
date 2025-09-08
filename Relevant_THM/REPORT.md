@@ -39,50 +39,52 @@ The primary goal of this engagement was to obtain the *User* and *Root* flags wh
 ```
 nmap -A 10.201.66.41
 ```
-# 📷 Screenshot: Nmap scan output (Nmap_scan_1.png)
+📷 **Screenshot:**  Nmap scan output (Nmap_scan_1.png)
 
 # Findings:
  - Port 80 → Microsoft IIS 10.0 (web server).
  - Ports 135, 139, 445 → MS RPC, NetBIOS, SMB (Windows file shares).
  - Port 3389 → RDP (Remote Desktop).
  - OS Discovery: Windows Server 2016 Standard Eval, Workgroup: WORKGROUP.
+---
 
 
 # 🛠 Step 2: SMB Enumeration & Passwords File Discovery
 
-1) Enumerate SMB shares (anonymous)
+*1) Enumerate SMB shares (anonymous)
 ```   
 smbclient -L //10.201.66.41 -N
 ```
-# Screenshot: nt4share
+📷 **Screenshot:** 
 
-2) Connect to the 'nt4wrksv' share (anonymous)
+*2) Connect to the 'nt4wrksv' share (anonymous)
 
 smbclient //10.201.66.41/nt4wrksv -N
 
 
-3) List files and download passwords.txt
+*3) List files and download passwords.txt
 ```
 ls
 get passwords.txt
 ```
 # Screenshot: screenshots/02_passwords_txt_list.png
 
-# 4) View the downloaded file locally (attackbox)
+*4) View the downloaded file locally (attackbox)
 
 cat passwords.txt
 
-
-# 5) Decode base64 entries (example; replace <BASE64_STRING> with value from your screenshot)
-
+*5) Decode base64 entries (example; replace <BASE64_STRING> with value from your screenshot)
+```
 echo "<BASE64_STRING>" | base64 -d
+```
 
 
-# Screenshot: Chatgpt
+📷 **Screenshot:**  Chatgpt
 
 # Observation:
 # - The passwords file contained base64-encoded entries (decoded in the screenshot).
 # - Despite decoding (see screenshot), using those credentials did NOT grant SMB access — appears to be a decoy designed to waste time.
+---
 
 
 ## 🔎 Step 3: Expanded Port Scan for Hidden Services
