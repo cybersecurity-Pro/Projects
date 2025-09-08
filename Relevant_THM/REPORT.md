@@ -92,7 +92,7 @@ echo "<BASE64_STRING>" | base64 -d
 ![ChatGpt](./Screenshots/decryption.png)  
 
 ### Observation:
- - The passwords file contained base64-encoded entries (decoded in the screenshot).
+ - The passwords file contained base64-encoded entries (decoded in the screenshot using ChatGpt).
  - Despite decoding, using those credentials did NOT grant SMB access — appears to be a decoy designed to waste time.
 ---
 
