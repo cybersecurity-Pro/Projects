@@ -71,7 +71,7 @@ smbclient //10.201.66.41/nt4wrksv -N
 ![Nt4wrksv_share](./Screenshots/nt4wrksv_share.png)  
 
 
-### 3) List files and download passwords.txt*
+### 3) List files and download passwords.txt
 ```
 ls
 get passwords.txt
@@ -82,7 +82,7 @@ get passwords.txt
 cat passwords.txt
 ```
 
-### 5) Decode base64 entries (example; replace <BASE64_STRING> with value from your screenshot)*
+### 5) Decode base64 entries (example; replace <BASE64_STRING> with value from your screenshot)
 ```
 echo "<BASE64_STRING>" | base64 -d
 ```
