@@ -20,14 +20,15 @@ This lab simulates a *black box penetration test* against a client's environment
 ### Goal
 The primary goal of this engagement was to obtain the *User* and *Root* flags while identifying vulnerabilities and misconfigurations within the environment.
 
-📷 **Screenshot:** 
-
-![Deploying the Machine](./Screenshots/start_machine_1.png)  
 
 ---
 
 
 ## 🛠 Step 1: Starting the Machine & Initial Recon
+
+📷 **Screenshot:** 
+
+![Deploying the Machine](./Screenshots/start_machine_1.png)  
 
 ### 1. Start the machine from the TryHackMe interface.
    - If using your own VM → connect via the THM VPN.
