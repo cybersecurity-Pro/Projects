@@ -20,6 +20,26 @@ This lab simulates a *black box penetration test* against a client's environment
 ### Goal
 The primary goal of this engagement was to obtain the *User* and *Root* flags while identifying vulnerabilities and misconfigurations within the environment.
 
+###🔧 Tools Used
+
+Nmap → For network scanning and service enumeration
+
+smbclient → For enumerating SMB shares
+
+Gobuster → For directory brute-forcing on the webserver
+
+msfvenom → To generate a malicious ASPX payload
+
+Netcat → For setting up a reverse shell listener
+
+whoami /priv → To enumerate privileges after gaining access
+
+Python3 HTTP Server → To host exploit files (e.g., PrintSpoofer)
+
+Certutil → Used on the target to download files from our server
+
+PrintSpoofer64.exe → Exploit for privilege escalation
+
 ---
 
 
