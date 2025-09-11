@@ -129,36 +129,36 @@ nmap -sV -p 49000-50000 10.201.66.41
 ---
 
 
-# 🌐 Step 4: Investigating the Webserver and Directory Enumeration
+## 🌐 Step 4: Investigating the Webserver and Directory Enumeration
 
-## After identifying the HTTP service on a high-numbered port, I navigated to it in the browser.
-# Observation:
+### After identifying the HTTP service on a high-numbered port, I navigated to it in the browser.
+### Observation:
  - The web interface looked very similar to the one we had previously encountered.
  - This raised suspicion that it might be connected to the SMB share we had enumerated earlier.
 
-## 1) Running directory brute-force to discover hidden paths
+### 1) Running directory brute-force to discover hidden paths
 gobuster dir -u http://10.201.66.41:49663 -w /usr/share/wordlists/dirb/common.txt
 
-## Observation:
+### Observation:
  - Among the results, one directory stood out: "/nt4wrksv".
  - This matched the name of the SMB share we had discovered earlier with smbclient.
 
-## 2) Visiting the "/nt4wrksv" directory in the browser
+### 2) Visiting the "/nt4wrksv" directory in the browser
  - The directory appeared empty at first glance.
 
-## 3) Testing direct access to known files from SMB
+### 3) Testing direct access to known files from SMB
  Since we knew that the SMB share contained "passwords.txt",
  I manually appended it to the URL to test if it was accessible.
 
 http://10.201.66.41:49663/nt4wrksv/passwords.txt
-# Screenshot: screenshots/07_passwords_web.png
+##Screenshot: screenshots/07_passwords_web.png
 
-## Result:
+### Result:
  - The contents of "passwords.txt" were displayed through the webserver.
  - This confirmed that the SMB share and the webserver SMB were directly linked.
  - You can also confirm it by putting a file into the  share and then search it on webserver.
 
-## ✅ Conclusion:
+### ✅ Conclusion:
 - By uploading a malicious payload into the SMB share,
 - and then accessing it via the webserver, we could achieve Remote Code Execution (RCE).
 
