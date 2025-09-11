@@ -20,7 +20,6 @@ This lab simulates a *black box penetration test* against a client's environment
 ### Goal
 The primary goal of this engagement was to obtain the *User* and *Root* flags while identifying vulnerabilities and misconfigurations within the environment.
 
-
 ---
 
 
@@ -52,6 +51,7 @@ nmap -A 10.201.66.41
  - Ports 135, 139, 445 → MS RPC, NetBIOS, SMB (Windows file shares).
  - Port 3389 → RDP (Remote Desktop).
  - OS Discovery: Windows Server 2016 Standard Eval, Workgroup: WORKGROUP.
+
 ---
 
 
@@ -94,6 +94,7 @@ echo "<BASE64_STRING>" | base64 -d
 ### Observation:
  - The passwords file contained base64-encoded entries (decoded in the screenshot using ChatGpt).
  - Despite decoding, using those credentials did NOT grant SMB access — appears to be a decoy designed to waste time.
+
 ---
 
 
@@ -126,6 +127,7 @@ nmap -sV -p 49000-50000 10.201.66.41
 ### Observation:
  - This detailed scan confirmed that one of the open ports in the range was running an HTTP service (a webserver).
  - With this information, the next step was to investigate the web application hosted on that port.
+
 ---
 
 
@@ -164,6 +166,7 @@ http://10.201.66.41:49663/nt4wrksv/passwords.txt
 ### ✅ Conclusion:
 - By uploading a malicious payload into the SMB share,
 - and then accessing it via the webserver, we could achieve Remote Code Execution (RCE).
+
 ---
 
 
@@ -246,8 +249,10 @@ Description: Allows impersonation of a client after authentication.
 Significance: This privilege is often abused for privilege escalation attacks such as Juicy Potato, PrintSpoofer, or Rogue Potato, which can allow escalation to SYSTEM.
 
 ### ✅ Conclusion
+
 The presence of SeImpersonatePrivilege (Enabled) indicated that the system was vulnerable to a known privilege escalation technique.
 This gave me a clear path forward to attempt SYSTEM-level access.
+
 ---
 
 
