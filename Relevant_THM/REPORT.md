@@ -275,7 +275,7 @@ By leveraging PrintSpoofer64.exe, I successfully escalated privileges and obtain
 
 
 
-## 🏁 Step 11: Capturing the Flags
+## 🏁 Step 8: Capturing the Flags
 ### 1️⃣ Root Flag
 
 With SYSTEM-level access, I navigated to the Administrator’s Desktop and retrieved the root.txt file:
