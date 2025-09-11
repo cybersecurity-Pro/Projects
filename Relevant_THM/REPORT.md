@@ -20,7 +20,7 @@ This lab simulates a *black box penetration test* against a client's environment
 ### Goal
 The primary goal of this engagement was to obtain the *User* and *Root* flags while identifying vulnerabilities and misconfigurations within the environment.
 
-###🔧 Tools Used
+### 🔧 Tools Used
 
 Nmap → For network scanning and service enumeration
 
