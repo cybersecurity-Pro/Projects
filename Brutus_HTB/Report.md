@@ -48,13 +48,13 @@ dir
 
 📷 **Screenshots:**
 
-[aq1](./Screenshots/aq1)
+[aq1](./Screenshots/aq1.png)
 
 
 ### Evidence to include:
  - Screenshot showing the highlighted failed login lines in Notepad (include timestamp + IP).
 
-[Q1](./Screenshots/Q1)
+[Q1](./Screenshots/Q1.png)
 
 
 
@@ -73,12 +73,12 @@ dir
 
 📷 **Screenshot:** 
  
-[aq2](./Screenshots/aq2)
+[aq2](./Screenshots/aq2.png)
 
 ### Evidence to include:
  - Screenshot shows the compromised username.
 
-[Q2](./Screenshots/Q2)
+[Q2](./Screenshots/Q2.png)
 
 ---
 
@@ -107,7 +107,7 @@ utmpdump wtmp
  
 📷 **Screenshot:** 
 
-[aq3](./Screenshots/aq3)
+[aq3](./Screenshots/aq3.png)
 
 ### Explanation:
  - auth.log shows the authentication event (when a password was accepted).
@@ -120,7 +120,7 @@ utmpdump wtmp
 
 📷 **Screenshot:** 
 
-[Q3](./Screenshots/Q3)
+[Q3](./Screenshots/Q3.png)
 
 ---
 
@@ -131,7 +131,7 @@ utmpdump wtmp
 
 📷 **Screenshot:**
 
-[aq4](./screenshots/aq4)
+[aq4](./screenshots/aq4.png)
 
 
 ### 2) Press **Ctrl+F** and search for: Accepted password
@@ -148,7 +148,7 @@ utmpdump wtmp
 
 📷 **Screenshot:**
 
-[Q4](./Screenshots/Q4)
+[Q4](./Screenshots/Q4.png)
 
 ---
 
