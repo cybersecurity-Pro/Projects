@@ -1,8 +1,8 @@
 ## 🛡️ Brutus (Hack The Box Sherlock) – Introduction
 
-### This Sherlock focuses on defensive investigations and log analysis.
-### The scenario simulates an investigation of a Linux server (Confluence)
-### that was brute-forced via SSH. The primary artifacts for analysis are:
+ This Sherlock focuses on defensive investigations and log analysis.
+ The scenario simulates an investigation of a Linux server (Confluence)
+ that was brute-forced via SSH. The primary artifacts for analysis are:
  - /var/log/auth.log
  - wtmp (login records)
 
