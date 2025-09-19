@@ -128,7 +128,7 @@ utmpdump wtmp
 
 📷 **Screenshot:**
 
-![aq4](./screenshots/aq4.png)
+![aq4](./Screenshots/aq4.png)
 
 
 ### 2) Press **Ctrl+F** and search for: Accepted password
