@@ -33,9 +33,6 @@
 
 ### 2) Verify extracted files (Windows CMD / Explorer)
  - Using File Explorer you should see two files: auth.log  wtmp
- - Or from a CMD/PowerShell prompt:
-dir
- Screenshot: screenshots/brutus_02_dir_contents.png
 
 ### 3) Open auth.log in Notepad (or Notepad++)
  - Right-click auth.log → Open with → Notepad (or Notepad++).
@@ -48,13 +45,13 @@ dir
 
 📷 **Screenshots:**
 
-[aq1](./Screenshots/aq1.png)
+![aq1](./Screenshots/aq1.png)
 
 
 ### Evidence to include:
  - Screenshot showing the highlighted failed login lines in Notepad (include timestamp + IP).
 
-[Q1](./Screenshots/Q1.png)
+![Q1](./Screenshots/Q1.png)
 
 
 
