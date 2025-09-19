@@ -18,4 +18,5 @@
  - Deliverables: short executive summary, timeline of events, key evidence screenshots,
    indicators of compromise (IOCs), remediation suggestions.
 
-# Screenshot (lab start page): screenshots/brutus_start_page.png
+📷 **Screenshot:** 
+![start page](./Screenshots/Intro.png)
