@@ -70,12 +70,12 @@
 
 📷 **Screenshot:** 
  
-[aq2](./Screenshots/aq2.png)
+![aq2](./Screenshots/aq2.png)
 
 ### Evidence to include:
  - Screenshot shows the compromised username.
 
-[Q2](./Screenshots/Q2.png)
+![Q2](./Screenshots/Q2.png)
 
 ---
 
@@ -104,7 +104,7 @@ utmpdump wtmp
  
 📷 **Screenshot:** 
 
-[aq3](./Screenshots/aq3.png)
+![aq3](./Screenshots/aq3.png)
 
 ### Explanation:
  - auth.log shows the authentication event (when a password was accepted).
@@ -117,7 +117,7 @@ utmpdump wtmp
 
 📷 **Screenshot:** 
 
-[Q3](./Screenshots/Q3.png)
+![Q3](./Screenshots/Q3.png)
 
 ---
 
@@ -128,7 +128,7 @@ utmpdump wtmp
 
 📷 **Screenshot:**
 
-[aq4](./screenshots/aq4.png)
+![aq4](./screenshots/aq4.png)
 
 
 ### 2) Press **Ctrl+F** and search for: Accepted password
@@ -145,7 +145,7 @@ utmpdump wtmp
 
 📷 **Screenshot:**
 
-[Q4](./Screenshots/Q4.png)
+![Q4](./Screenshots/Q4.png)
 
 ---
 
