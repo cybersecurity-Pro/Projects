@@ -240,7 +240,7 @@ The attacker’s first SSH session ended at: 2024-03-06 06:37:24
 
 📷 **Screenshot:**
 
-![Q7](./Screentshots/Q7.png)
+![Q7](./Screenshots/Q7.png)
 
 ### Answer: 2024-03-06 06:37:24
 
